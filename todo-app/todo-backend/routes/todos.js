@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   })
 
   let todo_counter = await redis.getAsync('todo_counter')
-  await redis.setAsync('todo_counter', todo_counter + 1)
+  await redis.setAsync('todo_counter', parseInt(todo_counter) + 1)
 
   res.send(todo);
 });
@@ -38,7 +38,7 @@ singleRouter.delete('/', async (req, res) => {
   await req.todo.delete()
 
   let todo_counter = await redis.getAsync('todo_counter')
-  await redis.setAsync('todo_counter', todo_counter - 1)
+  await redis.setAsync('todo_counter', parseInt(todo_counter) - 1)
 
   res.sendStatus(200);
 });
