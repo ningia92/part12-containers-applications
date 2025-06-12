@@ -60,5 +60,6 @@ typings/
 # next.js build output
 .next
 
-# mongodb stored data directory
+# mongodb and redis stored data directory
 mongo_data/
+redis_data/
